@@ -1,6 +1,0 @@
-{
-  "name": "Contacts",
-  "description": "A beautifully crafted, modern contacts manager styled with a warm Editorial Aesthetic layout, supporting imports, exports, detailed logs, and advanced categorization.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

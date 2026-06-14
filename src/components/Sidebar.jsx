@@ -17,53 +17,42 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../ThemeContext';
 
-export default function Sidebar({
-  contacts
-}) {
+export default function Sidebar({ contacts }) {
   const { isDark } = useTheme();
-  const activeTab = 'all'; // Default for static dashboard
+  const activeTab = 'all';
 
-  // Calculate counts dynamically
+  // Count helpers
   const activeContacts = contacts.filter(c => !c.isDeleted);
   const totalCount = activeContacts.length;
   const favoritesCount = activeContacts.filter(c => c.favorite).length;
   const frequentlyCount = activeContacts.filter(c => c.frequentlyContacted).length;
   const deletedCount = contacts.filter(c => c.isDeleted).length;
 
-  // Calculate duplicates count (number of contacts with shared email or mobile phone)
   const getDuplicatesCount = () => {
     const emails = new Map();
     const phones = new Map();
-
     activeContacts.forEach(c => {
-      if (c.email && c.email.trim()) {
+      if (c.email?.trim()) {
         const e = c.email.toLowerCase().trim();
         if (!emails.has(e)) emails.set(e, []);
         emails.get(e).push(c.id);
       }
-      if (c.mobilePhone && c.mobilePhone.trim()) {
-        const p = c.mobilePhone.replace(/[\s-().]/g, '');
+      if (c.mobilePhone?.trim()) {
+        const p = c.mobilePhone.replace(/[\s\-().]/g, '');
         if (p) {
           if (!phones.has(p)) phones.set(p, []);
           phones.get(p).push(c.id);
         }
       }
     });
-
-    const duplicateContactIds = new Set();
-    emails.forEach(ids => {
-      if (ids.length > 1) ids.forEach(id => duplicateContactIds.add(id));
-    });
-    phones.forEach(ids => {
-      if (ids.length > 1) ids.forEach(id => duplicateContactIds.add(id));
-    });
-
-    return duplicateContactIds.size;
+    const dup = new Set();
+    emails.forEach(ids => { if (ids.length > 1) ids.forEach(id => dup.add(id)); });
+    phones.forEach(ids => { if (ids.length > 1) ids.forEach(id => dup.add(id)); });
+    return dup.size;
   };
 
   const duplicatesCount = getDuplicatesCount();
 
-  // Group counts
   const groupCounts = {
     'Most Important': activeContacts.filter(c => c.group === 'Most Important').length,
     'Work': activeContacts.filter(c => c.group === 'Work').length,
@@ -91,24 +80,33 @@ export default function Sidebar({
   const sidebarBg = isDark ? 'bg-[#15152b] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
   const sectionHeader = isDark ? 'text-slate-500' : 'text-neutral-500';
   const activeTabStyle = isDark
-    ? 'bg-[#252545] text-[#E8E4DB] border-l-2 border-indigo-400 shadow-sm'
+    ? 'bg-[#252545] text-[#E8E4DB] border-0 border-indigo-400 shadow-sm'
     : 'bg-[#FAF9F5] text-[#1A1A1A] border-l-2 border-[#1A1A1A] shadow-sm';
   const inactiveTabStyle = isDark
-    ? 'text-slate-400 hover:bg-[#252545]/60 hover:text-slate-100 font-medium'
-    : 'text-neutral-600 hover:bg-[#FAF9F5]/50 hover:text-neutral-900 font-medium';
+    ? 'text-slate-400 font-medium'
+    : 'text-neutral-600 font-medium';
   const activeBadge = isDark ? 'bg-indigo-600 text-white' : 'bg-[#1A1A1A] text-[#FAF9F5]';
   const inactiveBadge = isDark ? 'bg-[#2e2e4a] text-slate-400' : 'bg-[#D9D2C5] text-neutral-700';
   const footerBorder = isDark ? 'border-[#2e2e4a]' : 'border-[#D0C9BA]';
   const footerText = isDark ? 'text-slate-600' : 'text-neutral-500';
-  const actionHover = isDark ? 'text-slate-400 hover:bg-[#252545]/60 hover:text-slate-100' : 'text-neutral-600 hover:bg-[#FAF9F5]/60 hover:text-neutral-900';
+  const actionHover = isDark
+    ? 'text-slate-400'
+    : 'text-neutral-600';
   const chevronColor = isDark ? 'text-slate-600' : 'text-neutral-400';
 
   return (
-    <div className={`w-68 h-full border-r flex flex-col justify-between py-6 select-none shrink-0 ${sidebarBg}`} id="contacts-sidebar">
-      <div className="space-y-6 overflow-y-auto px-4 font-sans">
-        {/* SECTION 1: My Contacts */}
+    <div
+      className={`w-64 sm:w-68 h-full border-r flex flex-col justify-between py-5 select-none shrink-0 ${sidebarBg}`}
+      id="contacts-sidebar"
+    >
+
+      <div className="space-y-6 overflow-y-auto px-4 font-sans flex-1">
+        {/* My Contacts */}
         <div>
-          <h2 className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`} id="header-my-contacts">
+          <h2
+            className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`}
+            id="header-my-contacts"
+          >
             My Contacts
           </h2>
           <div className="space-y-1">
@@ -136,9 +134,12 @@ export default function Sidebar({
           </div>
         </div>
 
-        {/* SECTION 2: Groups */}
+        {/* Groups */}
         <div>
-          <h2 className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`} id="header-groups">
+          <h2
+            className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`}
+            id="header-groups"
+          >
             Groups
           </h2>
           <div className="space-y-1">
@@ -147,7 +148,6 @@ export default function Sidebar({
               const isActive = activeTab === tab.id;
               const groupName = tab.label;
               const count = groupCounts[groupName] || 0;
-
               return (
                 <div
                   key={tab.id}
@@ -169,52 +169,45 @@ export default function Sidebar({
           </div>
         </div>
 
-        {/* SECTION 3: Actions */}
+        {/* Actions */}
         <div>
-          <h2 className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`} id="header-actions">
+          <h2
+            className={`text-[10px] font-bold tracking-widest uppercase mb-2 px-3 ${sectionHeader}`}
+            id="header-actions"
+          >
             Actions
           </h2>
           <div className="space-y-1">
-            <div
-              id="action-btn-import"
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition ${actionHover}`}
-            >
-              <div className="flex items-center gap-3">
-                <FileUp size={15} className="text-emerald-500" />
-                <span>Import</span>
-              </div>
-              <ChevronRight size={12} className={chevronColor} />
-            </div>
-
-            <div
-              id="action-btn-export"
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition ${actionHover}`}
-            >
-              <div className="flex items-center gap-3">
-                <FileDown size={15} className="text-amber-500" />
-                <span>Export</span>
-              </div>
-              <ChevronRight size={12} className={chevronColor} />
-            </div>
-
-            <div
-              id="action-btn-print"
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition ${actionHover}`}
-            >
-              <div className="flex items-center gap-3">
-                <Printer size={15} className="text-purple-500" />
-                <span>Print</span>
-              </div>
-              <ChevronRight size={12} className={chevronColor} />
-            </div>
+            {[
+              { id: 'import', label: 'Import', icon: FileUp, color: 'text-emerald-500' },
+              { id: 'export', label: 'Export', icon: FileDown, color: 'text-amber-500' },
+              { id: 'print', label: 'Print', icon: Printer, color: 'text-purple-500' },
+            ].map(action => {
+              const Icon = action.icon;
+              return (
+                <div
+                  key={action.id}
+                  id={`action-btn-${action.id}`}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition ${actionHover}`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon size={15} className={action.color} />
+                    <span>{action.label}</span>
+                  </div>
+                  <ChevronRight size={12} className={chevronColor} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Footer Info Statement */}
+      {/* Footer */}
       <div className={`px-6 text-[10px] select-none border-t pt-4 mt-2 ${footerBorder} ${footerText}`}>
         <p className="font-mono text-[9px] uppercase tracking-wider">Local Persistence: Active</p>
-        <p className={`text-[9px] whitespace-nowrap uppercase tracking-wider ${isDark ? 'text-slate-700' : 'text-neutral-400'}`}>System Version 2.0</p>
+        <p className={`text-[9px] whitespace-nowrap uppercase tracking-wider ${isDark ? 'text-slate-700' : 'text-neutral-400'}`}>
+          System Version 2.0
+        </p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { INITIAL_CONTACTS } from './data';
 import LeftRail from './components/LeftRail';
 import RightRail from './components/RightRail';
@@ -8,42 +8,45 @@ import ContactList from './components/ContactList';
 import ContactDetail from './components/ContactDetail';
 import { useTheme } from './ThemeContext';
 
+const selectedContactId = INITIAL_CONTACTS[1].id;
+const activeContact = INITIAL_CONTACTS.find(c => c.id === selectedContactId) || null;
+
 export default function App() {
   const { isDark } = useTheme();
 
-  const [selectedContactId, setSelectedContactId] = useState(INITIAL_CONTACTS[0].id);
-
-  const activeContact = INITIAL_CONTACTS.find(c => c.id === selectedContactId) || null;
-
   return (
-    <div className={`w-full h-screen flex flex-col font-sans overflow-hidden select-none transition-colors duration-300 ${isDark ? 'bg-[#0f0f1a] text-[#E8E4DB]' : 'text-[#1A1A1A]'}`} id="applet-dashboard-shell">
-      {/* 1. Global Header top-bar */}
+    <div
+      className={`w-full h-screen flex flex-col font-sans overflow-hidden select-none transition-colors duration-300 ${isDark ? 'bg-[#0f0f1a] text-[#E8E4DB]' : 'text-[#1A1A1A]'}`}
+      id="applet-dashboard-shell"
+    >
+      {/* Global Header */}
       <TopBar />
 
-      {/* 2. Main content panes row */}
+      {/* Main content panes */}
       <div className="flex-1 flex min-h-0 w-full" id="dashboard-panes-row">
-        {/* Extreme Left Rail */}
-        <LeftRail />
+        {/* Left Rail — hidden on small screens */}
+        <div className="hidden md:block">
+          <LeftRail />
+        </div>
 
-        {/* Sidebar Categories Panel */}
-        <Sidebar
-          contacts={INITIAL_CONTACTS}
-        />
+        {/* Sidebar — hidden on small screens */}
+        <div className="hidden md:block">
+          <Sidebar contacts={INITIAL_CONTACTS} />
+        </div>
 
-        {/* Filters/Contacts List Pane */}
+        {/* Contact List */}
         <ContactList
           contacts={INITIAL_CONTACTS}
           selectedContactId={selectedContactId}
-          onSelectContact={setSelectedContactId}
         />
 
-        {/* Selected Contact Details Profile Card */}
-        <ContactDetail
-          contact={activeContact}
-        />
+        {/* Contact Detail */}
+        <ContactDetail contact={activeContact} />
 
-        {/* Extreme Right Rail */}
-        <RightRail />
+        {/* Right Rail — hidden on small/medium screens */}
+        <div className="hidden lg:block">
+          <RightRail />
+        </div>
       </div>
     </div>
   );
