@@ -5,20 +5,20 @@ import { useTheme } from '../ThemeContext';
 export default function TopBar() {
   const { isDark } = useTheme();
 
-  const bg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
+  const bg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
   const inputBg = isDark
     ? 'bg-[#1e1e32] border-[#3a3a55] text-[#E8E4DB] placeholder:text-slate-500'
-    : 'bg-[#FAF9F5] border-[#D0C9BA] text-[#1A1A1A] placeholder:text-neutral-400';
+    : 'bg-[#ffffff4d] border-[#D0C9BA] text-muted placeholder:text-muted';
   const badgeBg = isDark
     ? 'bg-[#1e1e32] border-[#3a3a55] text-slate-400'
-    : 'bg-[#EBE7DD] border-[#D0C9BA] text-neutral-600';
-  const iconColor = isDark ? 'text-slate-400' : 'text-neutral-600';
+    : 'bg-[#ffffff4d] border-[#D0C9BA] text-muted';
+  const iconColor = isDark ? 'text-slate-400' : 'text-muted';
   const titleColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
   const createBtn = isDark
     ? 'bg-transparent text-blue-500 border border-blue-500'
     : 'bg-[#1A1A1A] text-[#F4F1EA]';
   const separatorColor = isDark ? 'bg-[#2e2e4a]' : 'bg-[#D0C9BA]';
-  const searchIconColor = isDark ? 'text-slate-500' : 'text-neutral-500';
+  const searchIconColor = isDark ? 'text-slate-500' : 'text-muted';
 
   return (
     <div

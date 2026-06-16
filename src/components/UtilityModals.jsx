@@ -28,19 +28,19 @@ export default function UtilityModals({
   const { isDark } = useTheme();
 
   // Theme helpers
-  const modalBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#FAF9F5] border-[#D0C9BA]';
-  const headerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
+  const modalBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
+  const headerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
   const titleColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
-  const closeBtn = isDark ? 'text-slate-400 hover:text-slate-100 hover:bg-[#2e2e4a]' : 'text-neutral-500 hover:text-neutral-900 hover:bg-[#D9D2C5]/50';
-  const inputStyle = isDark ? 'text-[#E8E4DB] bg-[#0d0d1f] border-[#3a3a55] focus:border-indigo-500 placeholder:text-slate-600' : 'text-[#1A1A1A] bg-white border-[#D0C9BA] focus:border-[#1A1A1A]';
-  const labelStyle = isDark ? 'text-slate-500' : 'text-neutral-500';
-  const presetBtn = isDark ? 'bg-[#1e1e32] text-slate-300 border-[#3a3a55] hover:bg-[#2e2e4a]' : 'bg-white text-neutral-700 border-[#D0C9BA] hover:bg-[#EBE7DD]/50';
-  const cancelBtn = isDark ? 'bg-[#1e1e32] hover:bg-[#2e2e4a] border-[#3a3a55] text-slate-300' : 'bg-white hover:bg-[#EBE7DD]/50 border-[#D0C9BA] text-neutral-700';
+  const closeBtn = isDark ? 'text-slate-400 hover:text-slate-100 hover:bg-[#2e2e4a]' : 'text-muted hover:text-neutral-900 hover:bg-[#ffffff4d]/50';
+  const inputStyle = isDark ? 'text-[#E8E4DB] bg-[#0d0d1f] border-[#3a3a55] focus:border-indigo-500 placeholder:text-slate-600' : 'text-[#1A1A1A] bg-[#ffffff4d] border-[#D0C9BA] focus:border-[#1A1A1A]';
+  const labelStyle = isDark ? 'text-slate-500' : 'text-muted';
+  const presetBtn = isDark ? 'bg-[#1e1e32] text-slate-300 border-[#3a3a55] hover:bg-[#2e2e4a]' : 'bg-[#ffffff4d] text-muted border-[#D0C9BA] hover:bg-[#ffffff4d]/50';
+  const cancelBtn = isDark ? 'bg-[#1e1e32] hover:bg-[#2e2e4a] border-[#3a3a55] text-slate-300' : 'bg-[#ffffff4d] hover:bg-[#ffffff4d]/50 border-[#D0C9BA] text-muted';
   const submitBtn = isDark ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-[#1A1A1A] hover:bg-[#333333] text-[#FAF9F5]';
   const tabBorderColor = isDark ? 'border-[#2e2e4a]' : 'border-[#D0C9BA]';
   const activeTab = isDark ? 'border-indigo-400 text-[#E8E4DB]' : 'border-[#1A1A1A] text-[#1A1A1A]';
-  const inactiveTab = isDark ? 'border-transparent text-slate-500 hover:text-slate-300' : 'border-transparent text-neutral-500 hover:text-neutral-800';
-  const copyBtnStyle = isDark ? 'bg-[#2e2e4a] hover:bg-[#3a3a55] text-slate-200 border-[#3a3a55]' : 'bg-neutral-100 hover:bg-[#EBE7DD]/60 text-[#1A1A1A] border-[#D0C9BA]';
+  const inactiveTab = isDark ? 'border-transparent text-slate-500 hover:text-slate-300' : 'border-transparent text-muted hover:text-neutral-800';
+  const copyBtnStyle = isDark ? 'bg-[#2e2e4a] hover:bg-[#3a3a55] text-slate-200 border-[#3a3a55]' : 'bg-[#ffffff4d] hover:bg-[#ffffff4d]/60 text-[#1A1A1A] border-[#D0C9BA]';
   const errBg = isDark ? 'bg-rose-900/30 border-rose-700 text-rose-300' : 'bg-red-50 border-red-200 text-red-900';
   const successBg = isDark ? 'text-emerald-400' : 'text-emerald-950';
 

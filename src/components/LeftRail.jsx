@@ -18,22 +18,22 @@ export default function LeftRail() {
 
   const railBg = isDark
     ? 'bg-[#12122a] border-[#2e2e4a]'
-    : 'bg-[#f4f1ea] border-[#D0C9BA]';
+    : 'bg-[#daeae9] border-[#D0C9BA]';
 
   const btnBase = isDark
     ? 'text-slate-500 hover:bg-[#2e2e4a] hover:text-slate-100'
-    : 'text-neutral-500 hover:bg-[#D9D2C5]/50 hover:text-neutral-900';
+    : 'text-muted hover:bg-[#ffffff4d]/50 hover:text-neutral-900';
 
   const activeBtn = isDark
     ? 'bg-[#2e2e4a] text-slate-100 border border-[#3a3a55]'
-    : 'bg-[#D9D2C5] text-[#1A1A1A] border border-[#C4BAA9]';
+    : 'bg-[#ffffff4d] text-[#1A1A1A] border border-[#D0C9BA] ';
 
   const activeIndicator = isDark ? 'bg-indigo-400' : 'bg-[#1A1A1A]';
   const separatorColor = isDark ? 'bg-[#2e2e4a]' : 'bg-[#D0C9BA]';
   const headerColor = isDark ? 'text-slate-600' : 'text-neutral-500';
   const gridBg = isDark
     ? 'bg-[#1e1e32] border-[#3a3a55] hover:border-slate-400 text-slate-300'
-    : 'bg-[#FAF9F5] border-[#D0C9BA] hover:border-neutral-500 hover:text-neutral-900 text-neutral-700';
+    : 'bg-[#ffffff4d] border-[#D0C9BA] hover:border-neutral-500 hover:text-neutral-900 text-muted';
 
   const sections = [
     {

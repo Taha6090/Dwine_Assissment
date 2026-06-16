@@ -13,21 +13,21 @@ export default function ContactList({
     .filter(c => !c.isDeleted)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  const paneBg = isDark ? 'bg-[#111127] border-[#2e2e4a]' : 'bg-[#FAF9F5] border-[#D0C9BA]';
+  const paneBg = isDark ? 'bg-[#111127] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
   const headerBorder = isDark ? 'border-[#2e2e4a]' : 'border-[#D0C9BA]';
   const titleColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
   const sortBtn = isDark
     ? 'text-slate-500 hover:text-slate-100 hover:bg-[#2e2e4a]'
-    : 'text-neutral-500 hover:text-neutral-900 hover:bg-[#D9D2C5]/50';
+    : 'text-muted hover:text-neutral-900 hover:bg-[#ffffff4d]/50';
   const dividerColor = isDark ? 'divide-[#2e2e4a]/40' : 'divide-[#D0C9BA]/40';
   const selectedItem = isDark
     ? 'bg-[#252545] border-r-4 border-indigo-400 text-[#E8E4DB]'
-    : 'bg-[#EBE7DD] border-r-4 border-[#1A1A1A] text-[#1A1A1A]';
-  const hoverItem = isDark ? 'hover:bg-[#1e1e38]/60 text-slate-300' : 'hover:bg-[#EBE7DD]/30 text-neutral-800';
+    : 'bg-[#ffffff4d] border-r-4 border-[#1A1A1A] text-[#1A1A1A]';
+  const hoverItem = isDark ? 'hover:bg-[#1e1e38]/60 text-slate-300' : 'hover:bg-[#ffffff4d]/30 text-muted';
   const avatarBorder = isDark ? 'border-[#3a3a55]/60' : 'border-[#D0C9BA]/60';
-  const subtitleColor = isDark ? 'text-slate-500' : 'text-neutral-500';
+  const subtitleColor = isDark ? 'text-slate-500' : 'text-muted';
   const emptyTitle = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
-  const emptySubtitle = isDark ? 'text-slate-500' : 'text-neutral-500';
+  const emptySubtitle = isDark ? 'text-slate-500' : 'text-muted';
 
   return (
     <div

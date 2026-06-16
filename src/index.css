@@ -2,7 +2,8 @@
 @import "tailwindcss";
 
 body{
-  background: url('./assets/body-dark.png') !important;
+  /* background: url('./assets/body-dark.png') !important; */
+  background: url('./assets/body-light.png') !important;
   transition: background 0.3s ease;
 }
 
@@ -10,6 +11,7 @@ body{
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Georgia", ui-serif, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-muted: oklch(0.551 0.01 251.587);
 }
 
 /* Custom scrollbar for warm paper-like editorial theme */
@@ -19,11 +21,11 @@ body{
 }
 
 ::-webkit-scrollbar-track {
-  background: #F4F1EA;
+  background: #d9fafa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D9D2C5;
+  background: #daeae9;
   border-radius: 3px;
 }
 

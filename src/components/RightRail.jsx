@@ -8,11 +8,11 @@ export default function RightRail() {
 
   const railBg = isDark
     ? 'bg-[#1a1a2e] border-[#2e2e4a] text-slate-400'
-    : 'bg-[#EBE7DD] border-[#D0C9BA] text-neutral-600';
+    : 'bg-[#ffffff4d] border-[#D0C9BA] text-muted';
 
   const btnHover = isDark
     ? 'hover:bg-[#2e2e4a] hover:text-slate-100'
-    : 'hover:bg-[#D9D2C5]/50 hover:text-[#1A1A1A]';
+    : 'hover:bg-[#ffffff4d]/50 hover:text-[#1A1A1A]';
 
   return (
     <div
@@ -21,7 +21,7 @@ export default function RightRail() {
     >
       <div className="flex flex-col items-center gap-6">
         <div
-          className={`w-8 h-8 rounded-full cursor-pointer hover:scale-105 transition duration-200 border flex items-center justify-center text-lg group relative ${isDark ? 'bg-[#2e2e4a] border-[#3a3a55]' : 'bg-[#FAF9F5] border-[#D0C9BA]'}`}
+          className={`w-8 h-8 rounded-full cursor-pointer hover:scale-105 transition duration-200 border flex items-center justify-center text-lg group relative ${isDark ? 'bg-[#2e2e4a] border-[#3a3a55]' : 'bg-[#ffffff4d] border-[#D0C9BA]'}`}
           title="Language: English (UK)"
           id="country-selector"
         >

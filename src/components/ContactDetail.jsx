@@ -15,20 +15,20 @@ import { useTheme } from '../ThemeContext';
 export default function ContactDetail({ contact }) {
   const { isDark } = useTheme();
 
-  const paneBg = isDark ? 'bg-[#0d0d1f]' : 'bg-[#F4F1EA]';
+  const paneBg = isDark ? 'bg-[#0d0d1f]' : 'bg-[#ffffff4d]';
   const headerBorder = isDark ? 'border-[#2e2e4a]' : 'border-[#D0C9BA]';
-  const cardBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#FAF9F5] border-[#D0C9BA]';
+  const cardBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
   const nameColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
-  const roleColor = isDark ? 'text-slate-400' : 'text-neutral-600';
+  const roleColor = isDark ? 'text-slate-400' : 'text-muted';
   const pillBg = isDark
     ? 'bg-[#252545]/80 border-[#3a3a55] text-slate-300'
-    : 'bg-[#EBE7DD]/80 border-[#D0C9BA] text-neutral-700';
+    : 'bg-[#ffffff4d]/80 border-[#D0C9BA] text-muted';
   const fieldRowBg = isDark
     ? 'bg-[#1a1a2e] border-[#2e2e4a]'
-    : 'bg-[#FAF9F5] border-[#D0C9BA]';
-  const labelColor = isDark ? 'text-slate-500' : 'text-[#1a1a1a]/60';
+    : 'bg-[#ffffff4d] border-[#D0C9BA]';
+  const labelColor = isDark ? 'text-slate-500' : 'text-muted';
   const valueColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
-  const emptyValueColor = isDark ? 'text-slate-600' : 'text-neutral-400';
+  const emptyValueColor = isDark ? 'text-slate-600' : 'text-muted';
   const avatarBorder = isDark ? 'border-[#252545]' : 'border-[#EBE7DD]';
   const actionBtnBase = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border';
   const updateBtn = isDark
@@ -46,7 +46,7 @@ export default function ContactDetail({ contact }) {
       >
         <Users2 size={64} className={`mb-4 animate-pulse ${isDark ? 'text-slate-700' : 'text-neutral-300'}`} />
         <p className={`text-sm font-bold font-serif ${nameColor}`}>Select a Contact</p>
-        <p className={`text-xs max-w-[240px] mt-1 ${isDark ? 'text-slate-500' : 'text-neutral-500'}`}>
+        <p className={`text-xs max-w-[240px] mt-1 ${isDark ? 'text-slate-500' : 'text-muted'}`}>
           Pick a profile from the list to view telephone logs, roles, and administrative commands.
         </p>
       </div>

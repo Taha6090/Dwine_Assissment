@@ -77,22 +77,22 @@ export default function Sidebar({ contacts }) {
     { id: 'group:Recent Leads', label: 'Recent Leads', icon: UserX, color: isDark ? 'text-rose-400' : 'text-rose-800' },
   ];
 
-  const sidebarBg = isDark ? 'bg-[#15152b] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
-  const sectionHeader = isDark ? 'text-slate-500' : 'text-neutral-500';
+  const sidebarBg = isDark ? 'bg-[#15152b] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
+  const sectionHeader = isDark ? 'text-slate-500' : 'text-muted';
   const activeTabStyle = isDark
     ? 'bg-[#252545] text-[#E8E4DB] border-0 border-indigo-400 shadow-sm'
     : 'bg-[#FAF9F5] text-[#1A1A1A] border-l-2 border-[#1A1A1A] shadow-sm';
   const inactiveTabStyle = isDark
     ? 'text-slate-400 font-medium'
-    : 'text-neutral-600 font-medium';
+    : 'text-muted font-medium';
   const activeBadge = isDark ? 'bg-indigo-600 text-white' : 'bg-[#1A1A1A] text-[#FAF9F5]';
   const inactiveBadge = isDark ? 'bg-[#2e2e4a] text-slate-400' : 'bg-[#D9D2C5] text-neutral-700';
   const footerBorder = isDark ? 'border-[#2e2e4a]' : 'border-[#D0C9BA]';
   const footerText = isDark ? 'text-slate-600' : 'text-neutral-500';
   const actionHover = isDark
     ? 'text-slate-400'
-    : 'text-neutral-600';
-  const chevronColor = isDark ? 'text-slate-600' : 'text-neutral-400';
+    : 'text-muted';
+  const chevronColor = isDark ? 'text-slate-600' : 'text-muted';
 
   return (
     <div

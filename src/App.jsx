@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div
-      className={`w-full h-screen flex flex-col font-sans overflow-hidden select-none transition-colors duration-300 ${isDark ? 'bg-[#0f0f1a] text-[#E8E4DB]' : 'text-[#1A1A1A]'}`}
+      className={`w-full h-screen flex flex-col font-sans overflow-hidden select-none transition-colors duration-300 ${isDark ? 'bg-[#0f0f1a] text-[#E8E4DB]' : 'bg-[#ffffff4d] text-muted'}`}
       id="applet-dashboard-shell"
     >
       {/* Global Header */}

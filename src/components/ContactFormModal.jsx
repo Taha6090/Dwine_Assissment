@@ -113,24 +113,24 @@ export default function ContactFormModal({
   if (!isOpen) return null;
 
   const backdrop = 'fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50 backdrop-blur-xs select-none';
-  const modalBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#FAF9F5] border-[#D0C9BA]';
-  const headerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
+  const modalBg = isDark ? 'bg-[#1a1a2e] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
+  const headerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
   const titleColor = isDark ? 'text-[#E8E4DB]' : 'text-[#1A1A1A]';
-  const closeBtn = isDark ? 'text-slate-400 hover:text-slate-100 hover:bg-[#2e2e4a]' : 'text-neutral-500 hover:text-neutral-900 hover:bg-[#D9D2C5]/50';
+  const closeBtn = isDark ? 'text-slate-400 hover:text-slate-100 hover:bg-[#2e2e4a]' : 'text-muted hover:text-neutral-900 hover:bg-[#ffffff4d]/50';
   const inputStyle = isDark
     ? 'text-[#E8E4DB] bg-[#0d0d1f] border-[#3a3a55] focus:border-indigo-500 placeholder:text-slate-600'
-    : 'text-[#1A1A1A] bg-white border-[#D0C9BA] focus:border-[#1A1A1A] placeholder:text-neutral-400';
-  const labelStyle = isDark ? 'text-slate-500' : 'text-neutral-500';
-  const sectionBg = isDark ? 'bg-[#252545]/40 border-[#3a3a55]' : 'bg-[#EBE7DD]/40 border-[#D0C9BA]';
-  const sectionLabel = isDark ? 'text-slate-400' : 'text-neutral-600';
-  const radioBg = isDark ? 'text-slate-300' : 'text-neutral-700';
+    : 'text-[#1A1A1A] bg-[#ffffff4d] border-[#D0C9BA] focus:border-[#1A1A1A] placeholder:text-muted';
+  const labelStyle = isDark ? 'text-slate-500' : 'text-muted';
+  const sectionBg = isDark ? 'bg-[#252545]/40 border-[#3a3a55]' : 'bg-[#ffffff4d]/40 border-[#D0C9BA]';
+  const sectionLabel = isDark ? 'text-slate-400' : 'text-muted';
+  const radioBg = isDark ? 'text-slate-300' : 'text-muted';
   const pillActive = isDark ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-[#1A1A1A] text-[#FAF9F5] border-[#1A1A1A]';
-  const pillInactive = isDark ? 'bg-[#1e1e32] text-slate-400 border-[#3a3a55] hover:text-slate-100 hover:border-slate-500' : 'bg-[#FAF9F5] text-neutral-600 border-[#D0C9BA] hover:text-neutral-900 hover:border-neutral-700';
-  const toggleRow = isDark ? 'bg-[#0d0d1f] border-[#3a3a55] text-slate-300' : 'bg-white border-[#D0C9BA] text-neutral-700';
-  const footerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#EBE7DD] border-[#D0C9BA]';
-  const cancelBtn = isDark ? 'bg-[#1e1e32] hover:bg-[#2e2e4a] border-[#3a3a55] text-slate-300' : 'bg-white hover:bg-[#EBE7DD]/50 border-[#D0C9BA] text-neutral-700';
+  const pillInactive = isDark ? 'bg-[#1e1e32] text-slate-400 border-[#3a3a55] hover:text-slate-100 hover:border-slate-500' : 'bg-[#ffffff4d] text-muted border-[#D0C9BA] hover:text-neutral-900 hover:border-neutral-700';
+  const toggleRow = isDark ? 'bg-[#0d0d1f] border-[#3a3a55] text-slate-300' : 'bg-[#ffffff4d] border-[#D0C9BA] text-muted';
+  const footerBg = isDark ? 'bg-[#12122a] border-[#2e2e4a]' : 'bg-[#ffffff4d] border-[#D0C9BA]';
+  const cancelBtn = isDark ? 'bg-[#1e1e32] hover:bg-[#2e2e4a] border-[#3a3a55] text-slate-300' : 'bg-[#ffffff4d] hover:bg-[#ffffff4d]/50 border-[#D0C9BA] text-muted';
   const submitBtn = isDark ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-[#1A1A1A] hover:bg-[#333333] text-[#FAF9F5]';
-  const iconColor = isDark ? 'text-slate-500' : 'text-neutral-400';
+  const iconColor = isDark ? 'text-slate-500' : 'text-muted';
 
   return (
     <div className={backdrop} id="contact-form-backdrop">
